@@ -1,0 +1,4 @@
+# Cargo config file
+
+[env]
+RUST_LOG="rust_web_app=debug"
