@@ -37,7 +37,7 @@ pub async fn init_test() -> ModelManager {
 	mm.clone()
 }
 
-pub async fn seed_task(
+pub async fn seed_tasks(
 	ctx: &Ctx,
 	mm: &ModelManager,
 	titles: &[&str],

@@ -144,7 +144,7 @@ mod tests {
 		let mm = _dev_utils::init_test().await;
 		let ctx = Ctx::root_ctx();
 		let fx_titles = &["test_list_ok-task 01", "test_list_ok-task 02"];
-		_dev_utils::seed_task(&ctx, &mm, fx_titles).await?;
+		_dev_utils::seed_tasks(&ctx, &mm, fx_titles).await?;
 
 		// -- Execute
 		let tasks = TaskBmc::list(&ctx, &mm).await?;
