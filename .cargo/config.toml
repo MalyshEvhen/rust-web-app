@@ -13,4 +13,4 @@ RUST_LOG="rust_web_app=debug"
 #   (e.g. K8s)
 
 ## -- ConfigMap
-SERVICE_WEB_FOLDER="/web-folder"
+SERVICE_WEB_FOLDER="web-folder/"
