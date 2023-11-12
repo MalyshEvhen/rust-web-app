@@ -29,8 +29,6 @@ pub async fn init_test() -> ModelManager {
 
 	let mm = INIT
 		.get_or_init(|| async {
-			info!("{:<12} - init_test()", "FOR-TEST-ONLY");
-
 			init_dev().await;
 			ModelManager::new().await.unwrap()
 		})
