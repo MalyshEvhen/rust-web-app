@@ -1,6 +1,7 @@
 // region:    --- Modules
 
 mod error;
+mod store;
 
 pub use self::error::{Error, Result};
 
