@@ -83,7 +83,6 @@ impl TaskBmc {
 #[cfg(test)]
 mod tests {
 	use crate::_dev_utils;
-
 	use super::*;
 	use anyhow::Result;
 	use serial_test::serial;
