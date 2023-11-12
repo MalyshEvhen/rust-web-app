@@ -8,6 +8,7 @@ pub type Result<T> = core::result::Result<T, Error>;
 #[serde_as]
 #[derive(Debug, Serialize)]
 pub enum Error {
+	EntityNotFound { entity: &'static str, id: i64 },
 	// -- Modules
 	Store(store::Error),
 
@@ -16,15 +17,15 @@ pub enum Error {
 }
 
 impl From<sqlx::Error> for Error {
-    fn from(value: sqlx::Error) -> Self {
-        Self::Sqlx(value)
-    }
+	fn from(value: sqlx::Error) -> Self {
+		Self::Sqlx(value)
+	}
 }
 
 impl From<store::Error> for Error {
-    fn from(value: store::Error) -> Self {
-        Self::Store(value)
-    }
+	fn from(value: store::Error) -> Self {
+		Self::Store(value)
+	}
 }
 
 // region:    --- Error Boilerplate
