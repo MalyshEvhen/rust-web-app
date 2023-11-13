@@ -5,7 +5,7 @@
 [env]
 
 # Scope down tracing, to filter out external lib tracing.
-RUST_LOG="rust_web_app=debug"
+RUST_LOG = "rust_web_app=debug"
 
 # -- Service Environment Variables
 # IMPORTANT: 
@@ -18,10 +18,15 @@ RUST_LOG="rust_web_app=debug"
 # e.g., "welcome" type of passwords.
 # i.e., Encryption not needed.
 
-SERVICE_DB_URL="postgres://app_user:dev_only_pwd@localhost/app_db"
+SERVICE_DB_URL = "postgres://app_user:dev_only_pwd@localhost/app_db"
+
+SERVICE_PWD_KEY = "jMfeil8eSE_DisA3178SvV4yQY9eIa_ecvObqF9zmC68Tl6NOT1xoWBIhPffwK0SYEk2EwYubqD_Cl8_L7xtbQ"
+
+SERVICE_TOKEN_KEY = "i4sdDPeefPRN-aWmd93kCWYLKTcW6GmoYqJ9_CK3xANCTmWH8vt6zH5KVHHvPI18qE7emcJlj7f_JmJJrqW_fA"
+SERVICE_TOKEN_DURATION_SEC = "1800"                                                                              # 30 minutes
 
 ## -- ConfigMap
 
 # This will be relative to Cargo.toml
 # In deployed images, probably use absolute path.
-SERVICE_WEB_FOLDER="web-folder/"
+SERVICE_WEB_FOLDER = "web-folder/"

@@ -1,7 +1,8 @@
 # rustfmt doc - https://rust-lang.github.io/rustfmt/
 
-hard_tabs = true
+hard_tabs = false
 edition = "2021"
+tab_spaces = 2
 
 # For recording
 max_width = 85
