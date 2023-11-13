@@ -22,8 +22,8 @@ pub struct UserForCreate {
 }
 
 #[derive(Fields)]
-struct UserForInsert {
-  username: String,
+pub struct UserForInsert {
+  pub username: String,
 }
 
 #[derive(Debug, Clone, FromRow, Fields)]
@@ -33,8 +33,8 @@ pub struct UserForLogin {
 
   // -- pwd and token info
   pub pwd: Option<String>,
-  pub pwd_salt: String,
-  pub token_salt: String,
+  pub pwd_salt: Uuid,
+  pub token_salt: Uuid,
 }
 
 #[derive(Debug, Clone, FromRow, Fields)]

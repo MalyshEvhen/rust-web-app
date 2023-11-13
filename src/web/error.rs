@@ -1,4 +1,4 @@
-use crate::web;
+use crate::{model, web};
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
 use serde::Serialize;
@@ -11,9 +11,21 @@ pub type Result<T> = core::result::Result<T, Error>;
 pub enum Error {
   // -- Login
   LoginFail,
+  LoginFailUsernameNotFound,
+  LoginFailUserHasNoPwd { user_id: i64 },
+  LoginFailPwdNotMatching { user_id: i64 },
 
   // -- CtxExtError
   CtxExt(web::mw_auth::CtxExtError),
+
+  // -- Module
+  Model(model::Error),
+}
+
+impl From<model::Error> for Error {
+  fn from(v: model::Error) -> Self {
+    Self::Model(v)
+  }
 }
 
 // region:    --- Axum IntoResponse
@@ -54,7 +66,13 @@ impl Error {
 
     #[allow(unreachable_patterns)]
     match self {
-      // -- Login/Auth
+      // -- Login
+      LoginFailUsernameNotFound
+      | LoginFailUserHasNoPwd { .. }
+      | LoginFailPwdNotMatching { .. } => {
+        (StatusCode::FORBIDDEN, ClientError::LOGIN_FAIL)
+      }
+      // -- Auth
       CtxExt(_) => (StatusCode::FORBIDDEN, ClientError::NO_AUTH),
 
       // -- Fallback.
