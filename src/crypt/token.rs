@@ -92,7 +92,15 @@ mod tests {
 
   #[test]
   fn test_token_display_ok() -> Result<()> {
-    // TODO: implement test_token_display
+    let fx_token_str = "ZngtaW5kZW50LTAx.MjAyMy0xMS0xN1QxNTozMDowMFo.some-sign-b64u-encoded";
+    let fx_token = Token {
+      ident: "fx-indent-01".to_string(),
+      exp: "2023-11-17T15:30:00Z".to_string(),
+      sign_b64u: "some-sign-b64u-encoded".to_string(),
+    };
+
+    assert_eq!(fx_token_str, fx_token.to_string());
+
     Ok(())
   }
 
