@@ -18,5 +18,7 @@ async fn main() -> Result<()> {
   );
   req_login.await?.print().await?;
 
+  hc.do_get("/hello").await?.print().await?;
+
   Ok(())
 }
