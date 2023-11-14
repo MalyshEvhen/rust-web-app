@@ -43,7 +43,7 @@ pub struct UserForAuth {
   pub username: String,
 
   // -- token info
-  pub token_salt: String,
+  pub token_salt: Uuid,
 }
 
 /// Marker Trait

@@ -28,3 +28,12 @@ fn set_token_cookie(cookies: &Cookies, user: &str, salt: &str) -> Result<()> {
 
   Ok(())
 }
+
+fn remove_token_cookie(cookies: &Cookies) -> Result<()> {
+  let mut cookie = Cookie::named(AUTH_TOKEN);
+  cookie.set_path("/");
+
+  cookies.remove(cookie);
+
+  Ok(())
+}
