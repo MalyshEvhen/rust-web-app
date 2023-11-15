@@ -10,7 +10,7 @@ pub fn now_utc() -> OffsetDateTime {
 }
 
 pub fn format_time(time: OffsetDateTime) -> String {
-  time.format(&Rfc3339).unwrap() // TODO: need to check if safe
+  time.format(&Rfc3339).unwrap()
 }
 
 pub fn now_utc_plus_sec_str(sec: f64) -> String {

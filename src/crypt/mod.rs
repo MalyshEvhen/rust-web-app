@@ -50,7 +50,7 @@ mod tests {
       content: "hello world".to_string(),
       salt: "some pepper".to_string(),
     };
-    // TODO: Nedd to fix fx_key and precompute fx_res
+
     let fx_res = encrypt_into_b64u(&fx_key, &fx_content)?;
 
     // -- Exec

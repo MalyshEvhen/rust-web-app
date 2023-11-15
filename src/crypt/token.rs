@@ -17,7 +17,6 @@ pub struct Token {
   pub sign_b64u: String,
 }
 
-// FIXME: This should be implemented
 impl Display for Token {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     write!(
@@ -30,7 +29,6 @@ impl Display for Token {
   }
 }
 
-// FIXME: This should be implemented
 impl FromStr for Token {
   type Err = Error;
 

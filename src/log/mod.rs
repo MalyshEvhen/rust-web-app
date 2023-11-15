@@ -50,8 +50,6 @@ pub async fn log_request(
 
   debug!(" REQUEST LOG LINE:\n{}", json!(log_line));
 
-  // TODO - Send to cloud-watch.
-
   Ok(())
 }
 
