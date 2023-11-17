@@ -163,7 +163,7 @@ mod tests {
       &mm,
       fx_task.id,
       TaskForUpdate {
-        title: Some(fx_title.to_string()),
+        title: Some(fx_new_title.to_string()),
       },
     )
     .await?;
@@ -172,7 +172,7 @@ mod tests {
     let task: Task = TaskBmc::get(&ctx, &mm, fx_task.id).await?;
 
     // -- Check
-    assert_eq!(task.title, fx_title);
+    assert_eq!(task.title, fx_new_title);
 
     Ok(())
   }
