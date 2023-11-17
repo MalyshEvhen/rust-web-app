@@ -1,10 +1,10 @@
 use crate::crypt::{pwd, EncryptContent};
 use crate::ctx::Ctx;
-use crate::model::{base::DbBmc, Error, ModelManager, Result};
+use crate::model::{base::DbBmc, ModelManager, Result};
 use serde::{Deserialize, Serialize};
 use sqlb::{Fields, HasFields};
 use sqlx::postgres::PgRow;
-use sqlx::{postgres::Postgres, FromRow};
+use sqlx::FromRow;
 use uuid::Uuid;
 
 use super::base;
@@ -68,7 +68,7 @@ impl UserBmc {
   }
 
   pub async fn first_by_username<E>(
-    ctx: &Ctx,
+    _ctx: &Ctx,
     mm: &ModelManager,
     username: &str,
   ) -> Result<Option<E>>
@@ -127,7 +127,7 @@ mod tests {
     let fx_username = "demo1";
 
     // -- Exec
-    let user: User = UserBmc::first_by_username(&ctx, &mm, fx_username)
+    UserBmc::first_by_username::<User>(&ctx, &mm, fx_username)
       .await?
       .context("Should have user 'demo1'")?;
 

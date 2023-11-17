@@ -42,7 +42,7 @@ mod tests {
   use rand::RngCore;
 
   #[test]
-  fn encrypt_into_b64u_ok() -> anyhow::Result<()> {
+  fn encrypt_into_b64u_ok() -> Result<()> {
     // -- Setup & Fixtures
     let mut fx_key = [0u8; 64];
     rand::thread_rng().fill_bytes(&mut fx_key);

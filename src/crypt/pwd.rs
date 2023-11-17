@@ -6,7 +6,6 @@ use crate::crypt::{encrypt_into_b64u, EncryptContent};
 pub fn encrypt_pwd(enc_content: &EncryptContent) -> Result<String> {
   let key = &config().PWD;
 
-  let EncryptContent { content, salt } = enc_content;
   let encrypted = encrypt_into_b64u(key, enc_content)?;
 
   Ok(format!("#01#{encrypted}"))

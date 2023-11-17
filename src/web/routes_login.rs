@@ -6,13 +6,10 @@ use crate::web::{self, remove_token_cookie, Error, Result};
 use axum::extract::State;
 use axum::routing::post;
 use axum::{Json, Router};
-use hmac::digest::typenum::Mod;
 use serde::Deserialize;
 use serde_json::{json, Value};
-use tower_cookies::{Cookie, Cookies};
+use tower_cookies::Cookies;
 use tracing::debug;
-use tracing_subscriber::field::debug;
-use uuid::Uuid;
 
 pub fn routes(mm: ModelManager) -> Router {
   Router::new()
@@ -81,7 +78,7 @@ async fn api_logoff_handler(
   let should_logoff = payload.logoff;
 
   if should_logoff {
-    remove_token_cookie(&cookies);
+    remove_token_cookie(&cookies)?;
   }
 
   // Create success body

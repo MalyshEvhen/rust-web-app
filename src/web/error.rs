@@ -15,7 +15,6 @@ pub enum Error {
   RpcFailJsonParams { rpc_method: String },
 
   // -- Login
-  LoginFail,
   LoginFailUsernameNotFound,
   LoginFailUserHasNoPwd { user_id: i64 },
   LoginFailPwdNotMatching { user_id: i64 },

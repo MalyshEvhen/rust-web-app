@@ -1,8 +1,6 @@
 use std::fmt::Display;
 use std::str::FromStr;
 
-use axum::body::HttpBody;
-
 use crate::config;
 use crate::crypt::{encrypt_into_b64u, EncryptContent, Error, Result};
 use crate::utils::{
@@ -122,7 +120,6 @@ mod tests {
 
   use super::*;
   use anyhow::{Ok, Result};
-  use rand::RngCore;
 
   #[test]
   fn test_token_display_ok() -> Result<()> {

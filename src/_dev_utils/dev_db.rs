@@ -1,6 +1,5 @@
 use std::{fs, path::PathBuf, time::Duration};
 
-use axum::extract::path;
 use sqlx::{postgres::PgPoolOptions, Pool, Postgres};
 use tracing::info;
 

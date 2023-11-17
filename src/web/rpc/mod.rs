@@ -2,8 +2,6 @@
 
 mod task_rpc;
 
-use std::fs::create_dir;
-
 use axum::{
   extract::State,
   response::{IntoResponse, Response},

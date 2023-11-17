@@ -1,5 +1,3 @@
-#![allow(unused)] // For early development.
-
 // region:    --- Modules
 
 mod config;
@@ -14,8 +12,6 @@ mod web;
 mod _dev_utils;
 
 pub use self::error::{Error, Result};
-use axum::response::Html;
-use axum::routing::get;
 pub use config::config;
 
 use crate::model::ModelManager;

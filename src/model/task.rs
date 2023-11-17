@@ -1,6 +1,6 @@
 use crate::{
   ctx::Ctx,
-  model::{task, Error, ModelManager, Result},
+  model::{ModelManager, Result},
 };
 use serde::{Deserialize, Serialize};
 use sqlb::Fields;
@@ -66,6 +66,7 @@ mod tests {
   use super::*;
   use crate::_dev_utils;
   use anyhow::Result;
+  use crate::model::Error;
   use serial_test::serial;
 
   #[serial]
